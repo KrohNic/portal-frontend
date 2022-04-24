@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .input {
+    width: 100%;
+  }
+}
+
+.clearable_container {
+  --input-right-padding: 10px;
+
+  $clear-ico-size: 15px;
+  $clear-bnt-padding: 4px;
+  $clear-bnt-margin-left: 8px;
+  $width-for-clear-btn: $clear-bnt-margin-left + 2 * $clear-bnt-padding + $clear-ico-size;
+
+  position: relative;
+
+  .input {
+    transition: padding-right 0.2s;
+  }
+
+  .clear_btn {
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: $clear-ico-size;
+    margin-right: var(--input-right-padding);
+    padding: 0;
+    transition-duration: 0.2s;
+    transition-property: width, margin, padding;
+  }
+
+  &:focus-within,
+  &:hover {
+    .input {
+      padding-right: calc(var(--input-right-padding) + #{$width-for-clear-btn});
+    }
+
+    .clear_btn {
+      width: $clear-ico-size;
+      margin-left: $clear-bnt-margin-left;
+      padding: $clear-bnt-padding;
+    }
+  }
+}

@@ -1,0 +1,89 @@
+.switch {
+  // sizes
+  --btn-width: 28px;
+  --btn-height: 16px;
+  --circle-size: calc(var(--btn-height) * 0.75);
+  --btn-padding: calc((var(--btn-height) - var(--circle-size)) / 2);
+
+  // colors
+  --circle-color: var(--main-bg-color);
+  --on-bg-color: var(--primary-color);
+  --off-bg-color: var(--border-inactive-color);
+  --on-hover-bg-color: var(--primary-hover-color);
+  --off-hover-bg-color: var(--main-hover-font-color);
+  --on-disabled-bg-color: var(--primary-disabled-color);
+  --off-disabled-bg-color: var(--secondary-disabled-bg-color);
+  --active-wave-color: var(--primary-hover-color);
+
+  position: relative;
+  display: inline-block;
+  width: var(--btn-width);
+  height: var(--btn-height);
+  padding: 0 var(--btn-padding);
+  vertical-align: middle;
+  background-color: var(--off-bg-color);
+  border: 0;
+  border-radius: var(--btn-height);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  appearance: none;
+
+  .circle {
+    width: var(--circle-size);
+    height: var(--circle-size);
+    margin: auto 0;
+    background-color: var(--circle-color);
+    border-radius: var(--circle-size);
+    transition-duration: 0.3s;
+    transition-property: margin, transform;
+  }
+
+  &.checked {
+    background-color: var(--primary-color);
+
+    .circle {
+      margin-left:
+        calc(
+          var(--btn-width) - var(--btn-padding) * 2 - var(--circle-size)
+        );
+    }
+
+    &:hover {
+      background-color: var(--on-hover-bg-color);
+    }
+
+    &:disabled {
+      background-color: var(--on-disabled-bg-color);
+      cursor: default;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    border-radius: var(--btn-height);
+    box-shadow: 0 0 0 calc(var(--btn-height) / 4) transparent;
+    opacity: 0.6;
+    transition: box-shadow 0.5s;
+    inset: 0 0 0 0;
+  }
+
+  &:hover {
+    background-color: var(--off-hover-bg-color);
+  }
+
+  &:disabled {
+    background-color: var(--secondary-disabled-bg-color);
+    cursor: default;
+  }
+
+  &:active:not(:disabled)::after {
+    box-shadow: 0 0 0 0 var(--active-wave-color);
+    transition-duration: 0s;
+  }
+
+  &:active:not(:disabled) .circle {
+    transform: scale(1.2);
+  }
+}

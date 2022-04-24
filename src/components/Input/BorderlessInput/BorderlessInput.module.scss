@@ -1,0 +1,11 @@
+.container {
+  /* stylelint-disable-next-line length-zero-no-unit */
+  --input-right-padding: 0px;
+
+  input {
+    width: 100%;
+    height: 43px;
+    padding: 0;
+    border: 0;
+  }
+}

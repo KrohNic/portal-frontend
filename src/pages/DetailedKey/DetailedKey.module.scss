@@ -1,0 +1,12 @@
+@use 'styles/variables' as variables;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: auto;
+  height: fit-content;
+  margin: 0 auto;
+  column-gap: 80px;
+  row-gap: 40px;
+}

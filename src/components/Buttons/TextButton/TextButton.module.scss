@@ -1,0 +1,33 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.button {
+  @include mixins.text(
+    variables.$main,
+    1.8rem,
+    1.2,
+    normal,
+    var(--main-font-color)
+  );
+
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    color: var(--main-hover-font-color);
+  }
+
+  &:active {
+    color: var(--main-font-color);
+  }
+
+  &:disabled {
+    color: var(--main-disabled-bg-color);
+    cursor: default;
+  }
+}

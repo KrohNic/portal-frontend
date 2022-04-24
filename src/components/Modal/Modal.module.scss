@@ -1,0 +1,23 @@
+.screen_no_overflow {
+  overflow: hidden;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0 0 0 0;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+
+  > * {
+    cursor: auto;
+  }
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  overflow: auto;
+  inset: 0 0 0 0;
+}

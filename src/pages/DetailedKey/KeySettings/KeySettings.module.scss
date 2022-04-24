@@ -1,0 +1,55 @@
+@use 'styles/variables' as variables;
+
+$back-btn-ico-size: 16px;
+$back-btn-margin-right: 20px;
+$back-btn-padding: 4px;
+$back-btn-width: 2 * $back-btn-padding + $back-btn-ico-size;
+$back-btn-container-width: $back-btn-width + $back-btn-margin-right;
+
+.column {
+  width: variables.$settings-column-width;
+  margin: 0 $back-btn-container-width;
+}
+
+.header {
+  display: flex;
+  width: variables.$settings-column-width + $back-btn-container-width;
+  margin-bottom: 16px;
+  margin-left: -$back-btn-container-width;
+  column-gap: 20px;
+
+  .back_btn,
+  .switcher_container {
+    flex-shrink: 0;
+    height: 31px;
+  }
+
+  .title {
+    flex-grow: 1;
+  }
+
+  .back_btn {
+    box-sizing: border-box;
+    width: $back-btn-width;
+    padding: $back-btn-padding;
+  }
+
+  .switcher_container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: variables.$desktop-media-breakpoint) {
+  .column {
+    width: 100%;
+    max-width: variables.$settings-column-width;
+    margin: 0;
+  }
+
+  .header {
+    width: 100%;
+    max-width: variables.$settings-column-width;
+    margin-left: 0;
+  }
+}

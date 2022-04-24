@@ -1,0 +1,109 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.settings_container {
+  $container-width: 512px;
+
+  width: 100%;
+  max-width: $container-width;
+
+  .settings_without_key_cards {
+    margin: 0 ($container-width - variables.$settings-column-width) * 0.5;
+  }
+}
+
+.form {
+  margin-top: 16px;
+}
+
+.add_key_btn_container {
+  position: relative;
+
+  .button {
+    @include mixins.text(
+      variables.$secondary,
+      1.4rem,
+      1.2,
+      500,
+      var(--main-bg-color)
+    );
+
+    height: 24px;
+    padding: 4px 16px;
+    overflow-y: hidden;
+  }
+
+  .tooltip {
+    @include mixins.text(
+      variables.$secondary,
+      1.2rem,
+      1.17,
+      normal,
+      var(--third-font-color)
+    );
+
+    position: absolute;
+    right: 0;
+    bottom: -52px;
+    width: 183px;
+    height: 44px;
+    padding: 8px;
+    background: var(--main-bg-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 16px var(--main-shadow-color);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &:hover > .tooltip {
+    opacity: 1;
+  }
+}
+
+.container_title_button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container_without_keys {
+  @include mixins.text(
+    variables.$main,
+    1.4rem,
+    1.1,
+    500,
+    var(--secondary-font-color)
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: variables.$settings-column-width;
+  height: 160px;
+  margin: 16px auto 0;
+  background: var(--secondary-bg-color);
+  border-radius: 4px;
+}
+
+.number_keys_used {
+  @include mixins.text(
+    variables.$secondary,
+    1.4rem,
+    1.17,
+    normal,
+    var(--secondary-font-color)
+  );
+
+  margin: 4px 0 8px;
+}
+
+.img_copy {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  align-self: flex-end;
+  width: 18px;
+  height: 20px;
+  cursor: pointer;
+}

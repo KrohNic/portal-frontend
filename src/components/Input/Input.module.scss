@@ -1,0 +1,52 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.input {
+  @include mixins.text(
+    variables.$secondary,
+    1.6rem,
+    normal,
+    normal,
+    var(--main-font-color)
+  );
+
+  height: 44px;
+  padding: 0 16px;
+  text-overflow: ellipsis;
+  background-color: var(--main-bg-color);
+  border: 1px solid var(--border-inactive-color);
+  border-radius: 4px;
+  transition-duration: 0.3s;
+  transition-property: border, background-color;
+  appearance: none;
+  caret-color: var(--primary-color);
+
+  &:hover {
+    border-color: var(--main-hover-font-color);
+  }
+
+  &:focus-within,
+  &:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+  }
+
+  &.error {
+    border-color: var(--danger-color);
+  }
+
+  &::placeholder {
+    color: var(--secondary-font-color);
+  }
+
+  &:disabled {
+    font-weight: 500;
+    color: var(--border-inactive-color);
+    background-color: var(--secondary-bg-color);
+    border: 0;
+
+    &::placeholder {
+      font-weight: normal;
+    }
+  }
+}

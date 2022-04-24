@@ -1,0 +1,32 @@
+@use 'styles/variables' as variables;
+
+.modal {
+  width: 544px;
+  margin: auto;
+  padding: 32px;
+  background-color: var(--main-bg-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 24px 0 var(--main-shadow-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.modal_button {
+  width: 100%;
+  height: 44px;
+  margin-top: 16px;
+  font-family: variables.$secondary;
+}
+
+.checkbox_container {
+  margin-top: 12px;
+
+  > * {
+    margin-bottom: 16px;
+  }
+}

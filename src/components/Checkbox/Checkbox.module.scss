@@ -1,0 +1,83 @@
+// selectors
+$icon-selector: '.icon';
+$visible-checkbox-selector: '.visible_checkbox';
+$hidden-checkbox-selector: '.hidden_checkbox';
+
+// sizes
+$size: 16px;
+
+// animation
+$basic-transition-duration: 0.4s;
+
+// colors
+$unchecked-bg: var(--main-bg-color);
+$checked-inactive-bg: var(--primary-color);
+$checked-focused-bg: var(--primary-hover-color);
+$border-inactive-color: var(--border-inactive-color);
+$border-hover-color: var(--border-hover-color);
+
+.container {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+#{$hidden-checkbox-selector} {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+#{$visible-checkbox-selector} {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  overflow: hidden;
+  background-color: $checked-inactive-bg;
+  border-width: 0;
+  border-radius: 2px;
+  box-shadow: 0 0 0 0 $checked-focused-bg;
+  transition-duration: $basic-transition-duration;
+  transition-property: background-color, border, box-shadow;
+
+  #{$hidden-checkbox-selector}:not(:checked) + & {
+    background-color: $unchecked-bg;
+    border: 1px solid $border-inactive-color;
+    box-shadow: 0 0 0 4px transparent;
+
+    #{$icon-selector} {
+      transform: scale(2);
+      visibility: hidden;
+    }
+  }
+
+  #{$hidden-checkbox-selector}:focus + &,
+  #{$hidden-checkbox-selector}:focus-visible + & {
+    outline: 1px auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  #{$hidden-checkbox-selector}:focus:not(:focus-visible) + & {
+    outline: 0;
+  }
+
+  #{$hidden-checkbox-selector}:hover + & {
+    border-color: $border-hover-color;
+  }
+
+  #{$hidden-checkbox-selector}:checked:hover + & {
+    background-color: $checked-focused-bg;
+  }
+}
+
+#{$icon-selector} {
+  transition: transform $basic-transition-duration * 1.5;
+  fill: none;
+  stroke: $unchecked-bg;
+  stroke-width: 2px;
+}

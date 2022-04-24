@@ -1,0 +1,41 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.key_container {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 17px 16px 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 transparent;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 4px 24px var(--main-shadow-color);
+  }
+
+  &:focus-visible {
+    outline: 1px auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  @include mixins.text(
+    variables.$secondary,
+    1.6rem,
+    1.5,
+    normal,
+    var(--main-font-color)
+  );
+
+  margin: 0;
+}

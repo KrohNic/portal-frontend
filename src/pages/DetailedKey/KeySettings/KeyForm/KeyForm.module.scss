@@ -1,0 +1,38 @@
+.checkboxes > * {
+  margin-bottom: 14px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0 0;
+
+  .save_btn {
+    width: 142px;
+    height: 44px;
+  }
+}
+
+.common_error > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 16px;
+  color: var(--danger-color);
+  background-color: var(--danger-bg-color);
+  border: 1px solid var(--danger-border-color);
+  border-radius: 4px;
+}
+
+.delete_btn {
+  --inactive-bg-color: var(--danger-hover-color);
+  --hover-bg-color: var(--danger-color);
+  --active-bg-color: var(--danger-hover-color);
+  --active-wave-color: var(--danger-color);
+  --bg-disabled-color: var(--danger-disabled-color);
+
+  width: 153px;
+  height: 44px;
+}

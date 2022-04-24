@@ -1,0 +1,26 @@
+.confirm {
+  width: 544px;
+  margin: auto;
+  padding: 32px;
+  background-color: var(--main-bg-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 24px 0 var(--main-shadow-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+  column-gap: 34px;
+}
+
+.cancel_btn {
+  font-weight: 500;
+}

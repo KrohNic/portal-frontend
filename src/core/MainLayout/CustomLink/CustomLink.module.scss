@@ -1,0 +1,53 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.sider_link,
+.sider_link_active {
+  @include mixins.text(
+    variables.$secondary,
+    1.6rem,
+    19px,
+    normal,
+    var(--main-font-color)
+  );
+
+  display: flex;
+  align-items: center;
+  height: 40px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  transition-property: background-color, font-weight;
+}
+
+.sider_link {
+  &:hover {
+    color: var(--main-font-color);
+    background-color: var(--secondary-bg-color);
+  }
+
+  &:focus-visible {
+    outline: 1px auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+.sider_link_active {
+  font-weight: bold;
+  background-color: var(--secondary-bg-color);
+  cursor: default;
+
+  &:hover {
+    color: var(--main-font-color);
+  }
+
+  &:focus-visible {
+    outline: 1px auto;
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+.sider_img {
+  margin-right: 17px;
+  margin-left: 17px;
+}

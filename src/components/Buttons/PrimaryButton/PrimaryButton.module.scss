@@ -1,0 +1,66 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.button {
+  // sizes
+  --border-radius: 4px;
+
+  // colors
+  --text-inactive-color: var(--main-bg-color);
+  --text-hover-color: var(--text-inactive-color);
+  --text-active-color: var(--text-inactive-color);
+  --text-disabled-color: var(--text-inactive-color);
+  --bg-disabled-color: var(--primary-disabled-color);
+  --inactive-bg-color: var(--primary-color);
+  --hover-bg-color: var(--primary-hover-color);
+  --active-bg-color: var(--primary-active-color);
+  --active-wave-color: var(--hover-bg-color);
+
+  @include mixins.text(
+    variables.$main,
+    1.8rem,
+    1.2,
+    500,
+    var(--text-inactive-color)
+  );
+
+  position: relative;
+  background-color: var(--inactive-bg-color);
+  border: 0 solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  transition-property: all;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 0 6px transparent;
+    opacity: 0.6;
+    transition: box-shadow 0.5s;
+    inset: 0 0 0 0;
+  }
+
+  &:hover {
+    color: var(--text-hover-color);
+    background-color: var(--hover-bg-color);
+  }
+
+  &:active {
+    color: var(--text-active-color);
+    background-color: var(--active-bg-color);
+
+    &::after {
+      box-shadow: 0 0 0 0 var(--active-wave-color);
+      transition-duration: 0s;
+    }
+  }
+
+  &:disabled {
+    color: var(--text-disabled-color);
+    background-color: var(--bg-disabled-color);
+    cursor: default;
+  }
+}

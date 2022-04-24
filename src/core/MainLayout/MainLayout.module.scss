@@ -1,0 +1,83 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables' as variables;
+
+.header {
+  $text-margin-bottom: 3px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+  padding: 16px 24px;
+  column-gap: 10px;
+  background-color: var(--main-bg-color);
+
+  .logo,
+  .button_exit {
+    @include mixins.text(
+      variables.$secondary,
+      1.6rem,
+      1.32,
+      normal,
+      var(--main-font-color)
+    );
+  }
+
+  .logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    column-gap: 7px;
+
+    .text {
+      margin: 0;
+      margin-bottom: $text-margin-bottom;
+      white-space: nowrap;
+    }
+  }
+
+  .button_exit {
+    margin-bottom: $text-margin-bottom;
+    font-weight: 500;
+  }
+}
+
+.page_container {
+  display: flex;
+}
+
+.sider {
+  position: sticky;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 183px;
+  height: fit-content;
+  row-gap: 4px;
+  margin-left: 24px;
+  background-color: var(--main-bg-color);
+}
+
+.main_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px 20px;
+  background-color: var(--main-bg-color);
+}
+
+@media screen and (max-width: variables.$tablet-media-breakpoint) {
+  .header {
+    margin-bottom: 10px;
+  }
+
+  .sider {
+    position: static;
+    margin: 0 20px;
+  }
+
+  .page_container {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+}
